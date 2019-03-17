@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>example.demo</groupId>
+  <artifactId>helloworld2</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>helloworld2 Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>helloworld2</finalName>
+    <plugins>
+    <!--*************************************************-->
+    <!-- Deploy to Tomcat in App Service Linux           -->
+    <!--*************************************************-->
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.5.3</version>
+        <configuration>
+            <!-- App information -->
+            <resourceGroup>jenkins-resource-group</resourceGroup>
+            <appName>cloudbees-base-demo-app</appName>
+            <region>eastus</region>
+   
+            <!-- Java Runtime Stack for App on Linux-->
+            <linuxRuntime>tomcat 8.5-jre8</linuxRuntime> 
+        </configuration>
+    </plugin>
+</plugins>
+  </build>
+</project>
