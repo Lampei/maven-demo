@@ -16,7 +16,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>ROOT</finalName>
+    <finalName>helloworld2</finalName>
     <plugins>
     <!--*************************************************-->
     <!-- Deploy to Tomcat in App Service Linux           -->
@@ -30,6 +30,18 @@
             <resourceGroup>jenkins-resource-group</resourceGroup>
             <appName>cloudbees-base-demo-app</appName>
             <region>eastus</region>
+            <!-- Deployment settings -->
+              <deployment>
+                <resources>
+                  <resource>
+                    <directory>${project.basedir}/target</directory>
+                    <targetPath>ROOT</targetPath>
+                    <includes>
+                      <include>*.war</include>
+                    </includes>
+                  </resource>
+                </resources>
+              </deployment>
    
             <!-- Java Runtime Stack for App on Linux-->
             <linuxRuntime>tomcat 8.5-jre8</linuxRuntime> 
