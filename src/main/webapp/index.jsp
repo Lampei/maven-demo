@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Hello World at 6:12PM EST!</h2>
+<h2>Hello World today</h2>
 </body>
 </html>
